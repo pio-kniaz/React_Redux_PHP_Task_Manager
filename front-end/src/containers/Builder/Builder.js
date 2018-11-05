@@ -1,10 +1,14 @@
 import React from "react";
-
+import "./Builder.css"
+import Navigation from "../../components/Navigation/Navigation";
+import Dashboard from "../Dashboard/Dashboard"
 class Builder extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Builder</h1>
+      <div className="Builder container">
+        <Navigation />
+
+				<Dashboard/>
       </div>
     );
   }

@@ -1,0 +1,18 @@
+.Navigation{
+	max-width: 200px;
+	background-color: #c5e6f8;
+	padding: 20px;
+	width: 20%;
+}
+.Navigation__box{
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0;
+}
+.Navigation__close{
+	width: 10%;
+}
+.Navigation__title{
+	width: 90%;
+	text-align: left;
+}
