@@ -5,7 +5,7 @@ import Dashboard from "../Dashboard/Dashboard";
 class Builder extends React.Component {
   render() {
     return (
-      <div className="Builder container">
+      <div className="Builder">
         <Navigation />
         <Dashboard />
       </div>
