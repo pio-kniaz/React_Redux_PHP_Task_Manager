@@ -10,10 +10,20 @@ class Alltasks extends React.Component {
     const { tasks } = this.props;
     return (
       <div className="Alltasks">
-        <h2>All Tasks</h2>
-        {tasks.map((obj, index) => {
-          return <div key={index}>{obj.name}</div>;
-        })}
+				<div className="row">
+					<div className="Alltasks__left col-md-4 col-sm-12">
+						{tasks.map((obj, index) => {
+							return (
+								<div className="Alltasks__box" key={index}>
+								{obj.title}
+							</div>);
+						})}
+
+					</div>
+					<div className="Alltasks__right col-md-8 col-sm-12">
+
+					</div>
+				</div>
       </div>
     );
   }

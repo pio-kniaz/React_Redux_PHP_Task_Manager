@@ -1,0 +1,10 @@
+.Alltasks__left{
+	padding-top: 25px;
+	min-height: 100vh;
+	background-color: #fbebc9;
+	padding-right: 0;
+}
+.Alltasks__box{
+	background: #abdde5;
+	margin: 10px;
+}
