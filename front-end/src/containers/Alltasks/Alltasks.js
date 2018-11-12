@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getTasks } from "../../actions/tasksActions";
+import { getTasks,deleteTask } from "../../actions/tasksActions";
 import "./Alltasks.css";
 class Alltasks extends React.Component {
   componentDidMount() {
     this.props.getTasks();
   }
+	onDeleteHander=(id)=>{
+		this.props.deleteTask(id)
+	}
   render() {
     const { tasks } = this.props;
     return (
@@ -14,8 +17,9 @@ class Alltasks extends React.Component {
 					<div className="Alltasks__left col-md-4 col-sm-12">
 						{tasks.map((obj, index) => {
 							return (
-								<div className="Alltasks__box" key={index}>
+								<div  className="Alltasks__box" key={index}>
 								{obj.title}
+								<span onClick={this.onDeleteHander.bind(this,obj.id)}>X</span>
 							</div>);
 						})}
 
@@ -35,5 +39,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { getTasks }
+  { getTasks,deleteTask }
 )(Alltasks);

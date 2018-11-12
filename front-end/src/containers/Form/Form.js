@@ -1,4 +1,6 @@
 import React from "react";
+import {addTask} from "../../actions/tasksActions"
+import {connect} from 'react-redux'
 import "./Form.css";
 class Form extends React.Component {
   constructor() {
@@ -11,15 +13,20 @@ class Form extends React.Component {
   }
 
   onInputValueHandler = event => {
-    this.setState(
-      {
-        [event.target.name]: event.target.value
-      }
-    );
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   };
-	onSubmitHandler=(event)=>{
-		event.preventDefault()
-	}
+
+  handleSubmit = event => {
+    event.preventDefault();
+		const newTask={
+			title:this.state.title,
+			category:this.state.category,
+			description:this.state.description
+		}
+		this.props.addTask(event.target,newTask)
+  }
   render() {
     const { openFormHandler } = this.props;
     return (
@@ -33,7 +40,7 @@ class Form extends React.Component {
               </button>
             </div>
             <div className="modal-body">
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   <input
                     onChange={this.onInputValueHandler}
@@ -71,4 +78,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default connect(null,{addTask})(Form);
