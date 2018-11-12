@@ -40,7 +40,7 @@ class Navigation extends React.Component {
               </button>
             </li>
           </ul>
-          {form && <Form />}
+          {form && <Form openFormHandler={this.openFormHandler} />}
         </div>
       </nav>
     );
