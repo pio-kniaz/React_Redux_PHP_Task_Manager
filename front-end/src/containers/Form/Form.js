@@ -3,9 +3,25 @@ import "./Form.css";
 class Form extends React.Component {
   constructor() {
     super();
+    this.state = {
+      title: "",
+      category: "",
+      description: ""
+    };
   }
+
+  onInputValueHandler = event => {
+    this.setState(
+      {
+        [event.target.name]: event.target.value
+      }
+    );
+  };
+	onSubmitHandler=(event)=>{
+		event.preventDefault()
+	}
   render() {
-		const {openFormHandler} = this.props
+    const { openFormHandler } = this.props;
     return (
       <div className="Form Form__modal">
         <div className="modal-dialog" role="document">
@@ -20,6 +36,8 @@ class Form extends React.Component {
               <form>
                 <div className="form-group">
                   <input
+                    onChange={this.onInputValueHandler}
+                    name="title"
                     type="text"
                     className="form-control"
                     placeholder="new title"
@@ -27,6 +45,8 @@ class Form extends React.Component {
                 </div>
                 <div className="form-group">
                   <input
+                    onChange={this.onInputValueHandler}
+                    name="category"
                     type="text"
                     className="form-control"
                     placeholder="category"
@@ -34,11 +54,14 @@ class Form extends React.Component {
                 </div>
                 <div className="form-group">
                   <textarea
+                    onChange={this.onInputValueHandler}
+                    name="description"
                     className="form-control"
                     placeholder="description"
                     rows="3"
                   />
                 </div>
+                <button className="btn btn-success">Add! </button>
               </form>
             </div>
           </div>
